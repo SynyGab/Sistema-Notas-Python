@@ -8,14 +8,7 @@ def salvar_alunos():
     # Abre o arquivo em modo de escrita para sobrescrever os dados antigos.
     # O bloco with garante que o arquivo será fechado ao final.
     with open("alunos.json", "w") as arquivo:
-        # Percorre cada aluno da lista.
-        for item in alunos:
-            # Pega o nome do aluno atual.
-            aluno_nome = item["nome"]
-            # Pega a nota do aluno atual.
-            aluno_nota = item["nota"]
-            # Escreve a linha no formato: nome,nota
-            arquivo.write(f"{aluno_nome},{aluno_nota}\n")
+        json.dump(alunos,arquivo,indent=4)
 
 # Solicita os dados do aluno e adiciona à lista.
 def cadastro_aluno():
